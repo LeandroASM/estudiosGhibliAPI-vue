@@ -1,17 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <IngresoDatos @hiddenInfo="show=false" @showInfo="show=true"/>
+    <Pelis v-if="show"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import IngresoDatos from "@/components/IngresoDatos.vue"
+import Pelis from "@/components/MostrarPelis.vue"
 
 export default {
   name: 'App',
+  data(){
+    return{
+      show: false,
+    }
+  },
   components: {
-    HelloWorld
+    IngresoDatos,
+    Pelis
   }
 }
 </script>
